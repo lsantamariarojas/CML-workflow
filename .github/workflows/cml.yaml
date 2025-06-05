@@ -21,7 +21,8 @@ jobs:
           pip install -r requirements.txt
           # Fixing cannot find font issue
           sudo apt-get update
-          sudo apt install msttcorefonts -qq -y
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install ttf-mscorefonts-installer
           rm ~/.cache/matplotlib -rf   
           python main.py  # generate plot.png
 
