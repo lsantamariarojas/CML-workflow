@@ -1,0 +1,27 @@
+# This runs a docker image based on the 'on' action and execute the steps below
+
+name: My-workflow-name
+on: [push]
+jobs:
+  train-and-report:
+  # docker image base
+      runs-on: ubuntu-latest
+      # container name
+      container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+      steps:
+      - uses: actions/checkout@v3
+      - name: Train model
+      # When needing to pass .env
+        # env:
+        # REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Steps to run in the container
+        ## Add any needed steps for your project
+        run: |
+          pip install -r requirements.txt
+          python main.py  # generate plot.png
+
+          ### Automatic reporting set up
+          # Create CML report
+          cat metrics.txt >> report.md
+          echo '![](./model_results.png "Confusion Matrix")' >> report.md
+          cml comment create report.md
