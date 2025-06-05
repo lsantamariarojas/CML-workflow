@@ -17,8 +17,7 @@ jobs:
         # Steps to run in the container
         ## Add any needed steps for your project
         run: |
-          pip update
-          pip upgrade
+          pip install --upgrade pip
           pip install -r requirements.txt
           python main.py  # generate plot.png
 
