@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Train model
       # When needing to pass .env
-        # env:
-        # REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Steps to run in the container
         ## Add any needed steps for your project
         run: |
