@@ -21,7 +21,7 @@ jobs:
           pip install -r requirements.txt
           # Fixing cannot find font issue
           sudo apt-get update
-          sudo apt install msttcorefonts -qq
+          sudo apt install msttcorefonts -qq -y
           rm ~/.cache/matplotlib -rf   
           python main.py  # generate plot.png
 
