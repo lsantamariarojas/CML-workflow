@@ -86,7 +86,7 @@ model.compile(
 )
 
 # Fit the model
-model.fit(X_train, y_train, epochs=100)
+model.fit(X_train, y_train, epochs=200)
 
 
 # Make and plot predictions for model_1
